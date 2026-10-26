@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:text="ĐĂNG KÝ TÀI KHOẢN"
+            android:text="ĐĂNG KÝ NGƯỜI DÙNG"
             android:textColor="#1B2631"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -27,7 +27,7 @@
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Họ và tên sinh viên"
+            android:hint="Họ và tên (>= 3 ký tự)"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -59,7 +59,7 @@
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Số điện thoại (10 số)"
+            android:hint="Số điện thoại (10 số VN)"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -86,11 +86,27 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- RadioButton Giới tính -->
+        <!-- Xác nhận mật khẩu -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilConfirmPassword"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Xác nhận mật khẩu"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Giới tính -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:text="Giới tính:"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -123,52 +139,49 @@
                 android:text="Khác" />
         </RadioGroup>
 
-        <!-- CheckBox Mạng xã hội -->
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Điều khoản -->
+        <CheckBox
+            android:id="@+id/cbTerms"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Mạng xã hội đang sử dụng:"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="4dp"
+            android:checked="true"
+            android:text="Tôi đồng ý với điều khoản cam kết" />
 
+        <!-- Cụm 2 Button: HỦY và ĐĂNG KÝ -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
 
-            <CheckBox
-                android:id="@+id/cbFacebook"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:text="Facebook" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancel"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="54dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:text="HỦY"
+                android:textColor="#E74C3C"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:strokeColor="#E74C3C" />
 
-            <CheckBox
-                android:id="@+id/cbZalo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:text="Zalo" />
-
-            <CheckBox
-                android:id="@+id/cbTiktok"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TikTok" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRegister"
+                android:layout_width="0dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="#34B469"
+                android:text="ĐĂNG KÝ"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- Nút Đăng ký -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRegister"
-            android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_marginTop="16dp"
-            android:text="ĐĂNG KÝ NGAY"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <!-- Thông tin sinh viên phía dưới -->
+        <!-- Thông tin sinh viên -->
         <TextView
             android:id="@+id/tvStudentInfo"
             android:layout_width="match_parent"
